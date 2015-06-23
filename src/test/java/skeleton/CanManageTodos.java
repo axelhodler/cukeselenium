@@ -20,10 +20,7 @@ public class CanManageTodos {
 
     @Given("^i have added learn cucumber to the list$")
     public void i_have_added_learn_cucumber_to_the_list() throws Throwable {
-        File pathToBinary = new File("/opt/homebrew-cask/Caskroom/firefox/37.0.2/Firefox.app/Contents/MacOS/firefox");
-        FirefoxBinary ffBinary = new FirefoxBinary(pathToBinary);
-        FirefoxProfile firefoxProfile = new FirefoxProfile();
-        wd = new FirefoxDriver(ffBinary,firefoxProfile);
+        wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://todomvc.com/examples/angularjs/");
         wd.findElement(By.id("new-todo")).click();
