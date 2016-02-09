@@ -40,10 +40,6 @@ public class CanManageTodos {
     public void i_can_clear_the_todo() throws Throwable {
         wd.findElement(By.id("clear-completed")).click();
         wd.findElement(By.cssSelector("html")).click();
-    }
-
-    @After
-    public void tearDown() {
         wd.quit();
     }
 
