@@ -5,4 +5,4 @@
 Firefox (installed via brew cask), Maven
 
 ## Run
-    ./bin.sh
+    ./run.sh
