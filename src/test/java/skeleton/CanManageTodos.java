@@ -13,6 +13,8 @@ public class CanManageTodos {
 
     @Given("^i have added learn cucumber to the list$")
     public void i_have_added_learn_cucumber_to_the_list() throws Throwable {
+        System.setProperty("webdriver.gecko.driver",
+                           "/usr/local/share/geckodriver");
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://todomvc.com/examples/angularjs/");
