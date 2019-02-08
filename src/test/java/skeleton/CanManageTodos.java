@@ -19,15 +19,15 @@ public class CanManageTodos {
         wd = new FirefoxDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://todomvc.com/examples/angularjs/");
-        wd.findElement(By.id("new-todo")).click();
-        wd.findElement(By.id("new-todo")).clear();
-        wd.findElement(By.id("new-todo")).sendKeys("Learn cucumber");
-        wd.findElement(By.id("new-todo")).sendKeys(Keys.ENTER);
+        wd.findElement(By.className("new-todo")).click();
+        wd.findElement(By.className("new-todo")).clear();
+        wd.findElement(By.className("new-todo")).sendKeys("Learn cucumber");
+        wd.findElement(By.className("new-todo")).sendKeys(Keys.ENTER);
     }
 
     @When("^i mark the todo deletable$")
     public void i_mark_the_todo_deletable() throws Throwable {
-        wd.findElement(By.id("new-todo")).sendKeys("\n");
+        wd.findElement(By.className("new-todo")).sendKeys("\n");
         if (!wd.findElement(By.xpath("//div[@class='view']/input")).isSelected()) {
             wd.findElement(By.xpath("//div[@class='view']/input")).click();
         }
@@ -35,7 +35,7 @@ public class CanManageTodos {
 
     @Then("^i can clear the todo$")
     public void i_can_clear_the_todo() throws Throwable {
-        wd.findElement(By.id("clear-completed")).click();
+        wd.findElement(By.className("clear-completed")).click();
         wd.findElement(By.cssSelector("html")).click();
         wd.quit();
     }
